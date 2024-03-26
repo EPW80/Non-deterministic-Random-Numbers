@@ -22,7 +22,7 @@ nasm -f elf64 -o fill_random_array.o fill_random_array.asm
 
 nasm -f elf64 -o sort_array.o sort_array.asm
 
-echo "Compiling the isnan file..." # This compiles isnan.asm
+echo "Compiling the isnan file..."
 nasm -f elf64 -o isnan.o isnan.asm
 
 echo "Linking the object files..."
