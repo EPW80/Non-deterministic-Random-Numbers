@@ -23,7 +23,7 @@
 	; Author email: epwilliams@csu.fullerton.edu
 	; Author section: 240 - 9
 	
-	global normalize_array
+	global sort_array
 	extern rdrand
 	
 	segment .data
@@ -31,7 +31,8 @@
 	align 64
 	storedata resb 832
 	segment .text
-normalize_array:
+	
+sort_array:
 	; Back up components
 	push rbp
 	mov rbp, rsp
@@ -59,24 +60,49 @@ normalize_array:
 	mov r14, rdi                 ; rdi contains the address of the random_number_array
 	mov r15, rsi                 ; rsi contains the count of the random_number_array
 	
-normalize_loop:
-	; If the index reach the count, end the loop
-	cmp r13, r15
-	jge normalize_finished
+sort_loop:
+	; Assume r14 is the address of the array, and r15 is the count of elements
+	; Check if the count is less than 2 (no need to sort)
+	cmp r15, 2
+	jl sort_finished
 	
-	; Normalize an element of the array
-	mov r12, [r14 + r13 * 8]     ; Temporary copy the element into r12. 0x9c75b07eadac83b9
-	shl r12, 12                  ; Shift the hex number 3 place to the left. 0x5b07eadac83b9
-	shr r12, 12                  ; Shift the hex number 3 place to the right. 0x0005b07eadac83b9
-	mov rax, 0x3FF0000000000000
-	or r12, rax                  ; OR the hex number with the mask
-	mov [r14 + r13 * 8], r12     ; Move the normalized hex number back into the array 0x3ff5b07eadac83b9
+	; Set up for bubble sort
+	mov r13, 0                   ; Outer loop counter (i)
 	
-	; Inrease the index and repeat the loop
-	inc r13
-	jmp normalize_loop
+outer_loop:
+	xor r12, r12                 ; Inner loop counter (j), reset for each outer loop iteration
+	xor r11, r11                 ; Flag to check if any swap has been made
 	
-normalize_finished:
+inner_loop:
+	cmp r12, r15
+	jge decrement_count          ; Jump to decrement_count if end of array is reached
+	
+	; Load the current and next element of the array
+	mov rax, [r14 + r12 * 8]     ; Load arr[j]
+	mov rbx, [r14 + r12 * 8 + 8] ; Load arr[j + 1]
+	
+	; Compare arr[j] and arr[j + 1]
+	cmp rax, rbx
+	jle no_swap                  ; If arr[j] <= arr[j + 1], do not swap
+	
+	; Swap arr[j] and arr[j + 1]
+	mov [r14 + r12 * 8], rbx
+	mov [r14 + r12 * 8 + 8], rax
+	mov r11, 1                   ; Set flag indicating a swap
+	
+no_swap:
+	inc r12
+	jmp inner_loop               ; Repeat inner loop
+	
+decrement_count:
+	; If no swaps were made in the last pass, the array is sorted
+	cmp r11, 0
+	je sort_finished
+	
+	dec r15                      ; Decrease the count, optimizing the bubble sort
+	jmp outer_loop               ; Repeat outer loop
+	
+sort_finished:
 	; Restore all the floating - point numbers
 	mov rax, 7
 	mov rdx, 0

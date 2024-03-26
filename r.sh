@@ -1,30 +1,9 @@
-# !/bin/bash
-
-# Program name: "Random Number Normalization". This program fill an array with up to
-# element with a random number and normalize them into a number within the range of 
-# 1.0 and 2.0
-# Copyright (C) <2023>  <Erik Williams>
-
-# This file is part of the software program "Random Number Normalization".
-
-# Random Number Normalization is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Random Number Normalization is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>. 
+#!/bin/bash
 
 # Author information
 #   Author name : Erik Williams
 #   Author email: epwilliams@csu.fullerton.edu
 #   Author section: 240-9
-
 
 echo "Compiling the main file..."
 gcc -c -m64 -Wall -fno-pie -no-pie -o main.o main.c -std=c17
@@ -41,8 +20,14 @@ nasm -f elf64 -o normalize_array.o normalize_array.asm
 echo "Compiling the fill_random_array file..."
 nasm -f elf64 -o fill_random_array.o fill_random_array.asm
 
+nasm -f elf64 -o sort_array.o sort_array.asm
+
+echo "Compiling the isnan file..." # This compiles isnan.asm
+nasm -f elf64 -o isnan.o isnan.asm
+
 echo "Linking the object files..."
-gcc -m64 -no-pie -o hw5.out -std=c17 show_array.o main.o executive.o fill_random_array.o normalize_array.o #-fno-pie
+gcc -m64 -no-pie -o hw5.out -std=c17 show_array.o main.o executive.o fill_random_array.o normalize_array.o sort_array.o
 
 echo "Running hw5.."
 ./hw5.out
+

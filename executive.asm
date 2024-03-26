@@ -32,6 +32,7 @@
 	extern fill_random_array
 	extern show_array
 	extern normalize_array
+	extern sort_array
 	max_size equ 60
 	
 	segment .data
@@ -42,7 +43,8 @@
     prompt_instruction_2 db "How many numbers do you want. Today’s limit is 100 per customer: ", 0
 	prompt_print_num_1 db "Your numbers have been stored in an array. Here is that array.", 10, 10, 0
 	prompt_print_num_2 db 10, "The array will now be normalized to the range 1.0 to 2.0. Here is the normalized array.", 10, 10, 0
-	prompt_goodbye db 10, "Good bye %s. You are welcome any time.", 10, 0
+	prompt_print_num_3 db 10, "The array will now be sorted.", 10, 10, 0
+	prompt_goodbye db 10, "Good bye %s %s. You are welcome any time.", 10, 0
 	
 	segment .bss
 	align 64
@@ -182,11 +184,29 @@ executive:
 	mov rdi, random_number_array
 	mov rsi, r15
 	call show_array
+
+	; Print the prompt_print_num_3
+	mov rax, 0
+	mov rdi, prompt_print_num_3
+	call printf
+	
+	; Sort the array
+	mov rax, 0
+	mov rdi, random_number_array
+	mov rsi, r15
+	call sort_array
+	
+	; Show the content of the array
+	mov rax, 0
+	mov rdi, random_number_array
+	mov rsi, r15
+	call show_array
 	
 	; Print the prompt_goodbye
 	mov rax, 0
 	mov rdi, prompt_goodbye      ; Good bye. You are welcome any time.
 	mov rsi, input_title
+	mov rdx, input_name
 	call printf
 	
 	; Restore all the floating - point numbers
