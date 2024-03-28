@@ -32,4 +32,4 @@ Sorting: Implements a bubble sort algorithm to organize the normalized numbers, 
 - Author: Erik Williams
 - Email: [Me](epwilliams@csu.fullerton.edu)
 
-#### Thank you for exploring the Random Number Normalization project!
+#### Thank you for exploring the Random Number Normalization project
