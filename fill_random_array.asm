@@ -28,6 +28,7 @@
 	extern rdrand
 	
 	segment .data
+	
 	segment .bss
 	align 64
 	storedata resb 832

@@ -6,10 +6,10 @@ The Random Number Normalization project is a software tool designed to generate 
 
 ## Features
 
-Random Number Generation: Utilizes the rdrand instruction for hardware-generated randomness, ensuring high-quality random numbers.
-Normalization: Converts the generated random numbers into a specified range, demonstrating floating-point arithmetic in Assembly.
-NaN Detection: Includes a function to check for NaN values, enhancing the program's reliability in dealing with floating-point numbers.
-Sorting: Implements a bubble sort algorithm to organize the normalized numbers, providing insights into algorithm implementation in Assembly.
+- Random Number Generation: Utilizes the rdrand instruction for hardware-generated randomness, ensuring high-quality random numbers.
+- Normalization: Converts the generated random numbers into a specified range, demonstrating floating-point arithmetic in Assembly.
+- NaN Detection: Includes a function to check for NaN values, enhancing the program's reliability in dealing with floating-point numbers.
+- Sorting: Implements a bubble sort algorithm to organize the normalized numbers, providing insights into algorithm implementation in Assembly.
 
 ## Components
 

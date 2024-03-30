@@ -215,6 +215,7 @@ executive:
 	mov rdx, 0
 	xrstor [storedata]
 	
+	; Print the prompt_name
 	mov rax, input_name
 	
 	;Restore the original values to the GPRs
