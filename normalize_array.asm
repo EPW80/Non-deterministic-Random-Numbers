@@ -66,9 +66,9 @@ normalize_loop:
 	jge normalize_finished
 	
 	; Normalize an element of the array
-	mov r12, [r14 + r13 * 8]     ; Temporary copy the element into r12. 0x9c75b07eadac83b9
-	shl r12, 12                  ; Shift the hex number 3 place to the left. 0x5b07eadac83b9
-	shr r12, 12                  ; Shift the hex number 3 place to the right. 0x0005b07eadac83b9
+	mov r12, [r14 + r13 * 8]     ; Load the hex number
+	shl r12, 12                  ; Shift the hex number 3 place to the left. 0x5b07eadac83b900
+	shr r12, 12                  ; Shift the hex number 3 place to the right. 0x3ff5b07eadac83b9
 	mov rax, 0x3FF0000000000000
 	or r12, rax                  ; OR the hex number with the mask
 	mov [r14 + r13 * 8], r12     ; Move the normalized hex number back into the array 0x3ff5b07eadac83b9

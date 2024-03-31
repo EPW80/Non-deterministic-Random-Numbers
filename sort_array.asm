@@ -65,7 +65,7 @@ sort_loop:
 	; Assume r14 is the address of the array, and r15 is the count of elements
 	; Check if the count is less than 2 (no need to sort)
 	cmp r15, 2
-	jl sort_finished
+	jl sort_finished             ; Jump to sort_finished if count is less than 2
 	
 	; Set up for bubble sort
 	mov r13, 0                   ; Outer loop counter (i)

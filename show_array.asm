@@ -35,7 +35,6 @@
 	storedata resb 832
 	
 	segment .text
-	
 show_array:
 	; Back up components
 	push rbp
@@ -74,7 +73,7 @@ output_loop:
 	cmp r13, r15
 	jge output_finished
 	
-	; Print the number inside the array in hex and scientific format
+	; Print the current element
 	mov rax, 1
 	mov rdi, output_format
 	mov rsi, [r14 + r13 * 8]
@@ -91,7 +90,7 @@ output_finished:
 	mov rdx, 0
 	xrstor [storedata]
 	
-	;Restore the original values to the GPRs
+	; Restore the original values to the GPRs
 	popf
 	pop r15
 	pop r14
