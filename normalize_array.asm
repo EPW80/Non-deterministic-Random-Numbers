@@ -31,6 +31,7 @@
 	segment .bss
 	align 64
 	storedata resb 832
+	
 	segment .text
 normalize_array:
 	; Back up components
