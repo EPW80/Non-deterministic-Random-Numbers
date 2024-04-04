@@ -26,7 +26,7 @@ echo "Compiling the isnan file..."
 nasm -f elf64 -o isnan.o isnan.asm
 
 echo "Linking the object files..."
-gcc -m64 -no-pie -o hw5.out -std=c17 show_array.o main.o executive.o fill_random_array.o normalize_array.o sort_array.o
+gcc -m64 -no-pie -o hw5.out -std=c17 show_array.o main.o executive.o fill_random_array.o normalize_array.o sort_array.o isnan.o
 
 echo "Running hw5.."
 ./hw5.out
