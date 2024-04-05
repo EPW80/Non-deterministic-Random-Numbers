@@ -20,15 +20,14 @@
 	
 	; Author information
 	; Author name : Erik Williams
-	; Author email: epwilliams@csu.fullerton.edu
 	; Author section: 240 - 9
 	
 	global show_array
 	extern printf
 	
 	segment .data
-	output_header db "IEEE754 Scientific Decimal", 10, 0
-	output_format db "0x%016lx % - 18.13g", 10, 0
+	output_header db "IEEE754               Scientific Decimal", 10, 0
+	output_format db "0x%016lx    %-18.13g", 10, 0
 	
 	segment .bss
 	align 64

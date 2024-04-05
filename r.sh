@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # Author information
-#   Author name : Erik Williams
-#   Author email: epwilliams@csu.fullerton.edu
-#   Author section: 240-9
+# Author name : Erik Williams
+# Author section: 240-9
 
 echo "Compiling the main file..."
 gcc -c -m64 -Wall -fno-pie -no-pie -o main.o main.c -std=c17

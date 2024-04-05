@@ -20,7 +20,6 @@
 	
 	; Author information
 	; Author name : Erik Williams
-	; Author email: epwilliams@csu.fullerton.edu
 	; Author section: 240 - 9
 	
 	global sort_array
