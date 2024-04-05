@@ -38,6 +38,10 @@ The Random Number Normalization project is a software tool designed to generate 
 
 - A Linux-based operating system or an environment that supports Bash scripts and the above tools.
 
+## Demo
+
+![](./rand.gif)
+
 ### Contact
 
 - Author: Erik Williams
