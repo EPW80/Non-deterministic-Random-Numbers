@@ -25,7 +25,6 @@
 	
 	global fill_random_array
 	extern rdrand
-	extern isnan
 	
 	segment .data
 	
