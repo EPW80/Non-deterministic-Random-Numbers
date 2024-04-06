@@ -10,8 +10,6 @@ The Random Number Normalization project is a software tool designed to generate 
 
 - Normalization: Converts the generated random numbers into a specified range, demonstrating floating-point arithmetic in Assembly.
 
-- NaN Detection: Includes a function to check for NaN values, enhancing the program's reliability in dealing with floating-point numbers.
-
 - Sorting: Implements a bubble sort algorithm to organize the normalized numbers, providing insights into algorithm implementation in Assembly.
 
 ## Components
@@ -25,8 +23,6 @@ The Random Number Normalization project is a software tool designed to generate 
 - show_array.asm: Outputs the contents of the array, both before and after normalization and sorting.
 
 - sort_array.asm: Implements a bubble sort algorithm to sort the normalized numbers.
-
-- isnan.asm: Provides functionality to check for NaN (Not-a-Number) values within the array.
 
 - r.sh: A Bash script to compile, link, and execute the project, streamlining the build process.
 
@@ -45,6 +41,3 @@ The Random Number Normalization project is a software tool designed to generate 
 ### Contact
 
 - Author: Erik Williams
-- Email: [Me](epwilliams@csu.fullerton.edu)
-
-#### Thank you for exploring the Random Number Normalization project
