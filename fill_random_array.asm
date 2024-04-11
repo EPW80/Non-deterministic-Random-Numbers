@@ -7,7 +7,7 @@
 	; Processor Architecture: [x86_64]
 	; Floating - Point Standard: IEEE 754
 	;
-	; Copyright (C) <2023> Erik Williams
+	; Copyright (C) <2024> Erik Williams
 	;
 	; This file is part of the software program "Random Number Normalization".
 	;
@@ -23,6 +23,7 @@
 	
 	global fill_random_array
 	extern rdrand
+	
 	
 	segment .data
 	

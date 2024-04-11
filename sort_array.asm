@@ -7,7 +7,7 @@
 	; Processor Architecture: [x86_64]
 	; Floating - Point Standard: IEEE 754
 	;
-	; Copyright (C) <2023> Erik Williams
+	; Copyright (C) <2024> Erik Williams
 	;
 	; This file is part of the software program "Random Number Normalization".
 	;
@@ -59,8 +59,7 @@ sort_array:
 	mov r15, rsi                 ; rsi contains the count of the random_number_array
 	
 sort_loop:
-	; Assume r14 is the address of the array, and r15 is the count of elements
-	; Check if the count is less than 2 (no need to sort)
+	; Check if count is less than 2
 	cmp r15, 2
 	jl sort_finished             ; Jump to sort_finished if count is less than 2
 	
@@ -81,7 +80,7 @@ inner_loop:
 	
 	; Compare arr[j] and arr[j + 1]
 	cmp rax, rbx
-	jle no_swap                  ; If arr[j] <= arr[j + 1], do not swap
+	jle no_swap                  ; Jump to no_swap if arr[j] <= arr[j + 1]
 	
 	; Swap arr[j] and arr[j + 1]
 	mov [r14 + r12 * 8], rbx

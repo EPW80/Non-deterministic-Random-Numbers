@@ -1,7 +1,7 @@
 // Program name: "Random Number Normalization". This program fill an array with up to
 // element with a random number and normalize them into a number within the range of
 // 1.0 and 2.0
-// Copyright (C) <2023>  <Erik Williams>
+// Copyright (C) <2024>  <Erik Williams>
 
 // This file is part of the software program "Random Number Normalization".
 
